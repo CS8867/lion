@@ -15,11 +15,15 @@ export class LionCheckboxIndeterminate extends LionCheckbox {
   }
 
   get _checkboxGroupNode() {
-    return /** @type {import('./LionCheckboxGroup').LionCheckboxGroup} */ (this.parentElement);
+    return /** @type {import('./LionCheckboxGroup').LionCheckboxGroup} */ (this.closest(
+      'lion-checkbox-group',
+    ));
   }
 
   get _subCheckboxes() {
-    return this._checkboxGroupNode.formElements.filter(checkbox => checkbox !== this);
+    return this._checkboxGroupNode.formElements.filter(
+      checkbox => checkbox !== this && this.contains(checkbox),
+    );
   }
 
   _parentModelValueChanged() {
@@ -101,7 +105,7 @@ export class LionCheckboxIndeterminate extends LionCheckbox {
           display: block;
         }
 
-        :host ::slotted(lion-checkbox) {
+        ::slotted(*) {
           padding-left: 8px;
         }
       `,

@@ -249,3 +249,35 @@ export const indeterminate = () => html`
   </lion-checkbox-group>
 `;
 ```
+
+```js preview-story
+export const indeterminateSiblings = () => html`
+  <lion-checkbox-group name="scientists[]" label="Favorite scientists">
+    <lion-checkbox-indeterminate label="Old Greek scientists">
+      <lion-checkbox label="Archimedes" .choiceValue=${'Archimedes'}></lion-checkbox>
+      <lion-checkbox label="Plato" .choiceValue=${'Plato'}></lion-checkbox>
+      <lion-checkbox label="Pythagoras" .choiceValue=${'Pythagoras'}></lion-checkbox>
+    </lion-checkbox-indeterminate>
+    <lion-checkbox-indeterminate label="17th Century scientists">
+      <lion-checkbox label="Isaac Newton" .choiceValue=${'Isaac Newton'}></lion-checkbox>
+      <lion-checkbox label="Galileo Galilei" .choiceValue=${'Galileo Galilei'}></lion-checkbox>
+    </lion-checkbox-indeterminate>
+  </lion-checkbox-group>
+`;
+```
+
+```js preview-story
+export const indeterminateChildren = () => html`
+  <lion-checkbox-group name="scientists[]" label="Favorite scientists">
+    <lion-checkbox-indeterminate label="Scientists">
+      <lion-checkbox label="Isaac Newton" .choiceValue=${'Isaac Newton'}></lion-checkbox>
+      <lion-checkbox label="Galileo Galilei" .choiceValue=${'Galileo Galilei'}></lion-checkbox>
+      <lion-checkbox-indeterminate label="Old Greek scientists">
+        <lion-checkbox label="Archimedes" .choiceValue=${'Archimedes'}></lion-checkbox>
+        <lion-checkbox label="Plato" .choiceValue=${'Plato'}></lion-checkbox>
+        <lion-checkbox label="Pythagoras" .choiceValue=${'Pythagoras'}></lion-checkbox>
+      </lion-checkbox-indeterminate>
+    </lion-checkbox-indeterminate>
+  </lion-checkbox-group>
+`;
+```
